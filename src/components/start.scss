@@ -1,0 +1,355 @@
+$primary-orange: #ffad4d;
+$dark-orange: #ff6e40;
+$primary-blue: rgb(18, 131, 179);
+$black: #000;
+$white: #fff;
+$black-gray: #1e1e1e;
+
+.start {
+    width: 100%;
+    height: 100%;
+    background-color: $primary-orange;
+    &__container {
+        margin: 0 auto;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .start__frame {
+            background-color: transparent;
+            border: solid $dark-orange;
+            border-width: 1.7rem 1.3rem 1.7rem 1.3rem;
+            filter: drop-shadow(-0.8rem 1.2rem 0.4rem rgba(0, 0, 0, 0.25));
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 3;
+        }
+
+        .start__elements {
+            padding: 4.8rem;
+            width: 100%;
+            height: 45.3rem;
+            position: relative;
+
+            .start__text {
+                color: $white;
+                font-weight: 900;
+
+                &--title h1 {
+                    filter: drop-shadow(-0.6rem -0.4rem 0rem $primary-blue);
+                    font-size: 6.6rem;
+                    margin: 0;
+                    line-height: 7.5rem;
+                }
+
+                &--subtitle h2 {
+                    margin: 0;
+                    font-size: 2.9rem;
+                    filter: drop-shadow(-0.6rem -0.4rem 0rem $dark-orange);
+                }
+            }
+
+            .start__technologies {
+                .start__text {
+                    filter: drop-shadow(0 0.4rem 0.4rem rgba(0, 0, 0, 0.25));
+                    position: absolute;
+
+                    &--javascript {
+                        font-size: 3.6rem;
+                        top: -1rem;
+                        left: 10rem;
+                    }
+                    &--html {
+                        font-size: 2.6rem;
+                        top: 5rem;
+                        right: 5rem;
+                    }
+                    &--css {
+                        font-size: 3.6rem;
+                        bottom: 14.5rem;
+                    }
+                    &--vue {
+                        font-size: 1.6rem;
+                        right: 5rem;
+                    }
+                    &--git {
+                        font-size: 1.7rem;
+                        right: 9rem;
+                        bottom: 14rem;
+                    }
+                    &--react {
+                        font-size: 1.8rem;
+                        bottom: 7rem;
+                        left: 10rem;
+                    }
+                    &--sass {
+                        font-size: 1.7rem;
+                        right: 7rem;
+                        bottom: 9.5rem;
+                    }
+                }
+            }
+        }
+
+        .start__bottom {
+            width: 100%;
+            text-align: center;
+            z-index: 4;
+            position: absolute;
+            bottom: 2.5rem;
+
+            .start__text {
+                font-size: 1.9rem;
+                color: $black-gray;
+                margin: 0;
+
+                &--bold {
+                    font-weight: 700;
+                }
+            }
+
+            .start__arrow {
+                margin-top: 1.5rem;
+            }
+        }
+
+        .start__image {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 350px) {
+    .start {
+        &__container {
+            .start__elements {
+                .start__text {
+                    &--title h1 {
+                        font-size: 5.6rem;
+                        margin: 0;
+                    }
+
+                    &--subtitle h2 {
+                        font-size: 2.9rem;
+                    }
+                }
+                .start__technologies {
+                    .start__text {
+                        &--html {
+                            top: 2rem;
+                            right: 3rem;
+                        }
+                        &--vue {
+                            bottom: 18rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 500px) and (max-width: 619px) {
+    .start {
+        &__container {
+            .start__elements {
+                .start__technologies {
+                    .start__text {
+                        &--html {
+                            right: 14rem;
+                        }
+                        &--vue {
+                            right: 14rem;
+                        }
+                        &--git {
+                            right: 17rem;
+                        }
+                        &--sass {
+                            right: 12rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 620px) {
+    .start {
+        &__container {
+            .start__elements {
+                margin-bottom: 5rem;
+                .start__text {
+                    &--title h1 {
+                        filter: drop-shadow(-0.6rem -0.4rem 0rem $primary-blue);
+                        font-size: 8.6rem;
+                        margin: 0;
+                        line-height: 9rem;
+                    }
+
+                    &--subtitle h2 {
+                        font-size: 5.9rem;
+                    }
+                }
+
+                .start__technologies {
+                    .start__text {
+                        &--javascript {
+                            font-size: 5.6rem;
+                            top: -3rem;
+                            left: 24rem;
+                        }
+                        &--html {
+                            font-size: 3.2rem;
+                            top: 5rem;
+                            right: 25rem;
+                        }
+                        &--css {
+                            font-size: 4.5rem;
+                            bottom: 9rem;
+                            left: 9rem;
+                        }
+                        &--vue {
+                            font-size: 2.6rem;
+                            right: 11rem;
+                            bottom: 19rem;
+                        }
+                        &--git {
+                            font-size: 2.4rem;
+                            right: 18rem;
+                            bottom: 5rem;
+                        }
+                        &--react {
+                            font-size: 3.8rem;
+                            bottom: 2rem;
+                            left: 19rem;
+                        }
+                        &--sass {
+                            font-size: 2.6rem;
+                            right: 32rem;
+                            bottom: 10.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 619px) and (min-height: 900px) {
+    .start {
+        &__container {
+            .start__elements {
+                .start__technologies {
+                    .start__text {
+                        &--css {
+                            bottom: 6rem;
+                        }
+                        &--react {
+                            bottom: -3rem;
+                        }
+                        &--sass {
+                            bottom: 8rem;
+                        }
+                        &--git {
+                            bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .start {
+        &__container {
+            height: 45.3rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+            max-width: 1000px;
+
+            .start__frame {
+                display: none;
+            }
+
+            .start__elements {
+                padding: 4.8rem;
+                width: 40%;
+                height: unset;
+                position: relative;
+
+                .start__text {
+                    &--title h1 {
+                        font-size: 5.8rem;
+                        line-height: 7rem;
+                    }
+
+                    &--subtitle h2 {
+                        font-size: 3.1rem;
+                    }
+                }
+
+                .start__technologies {
+                    .start__text {
+                        &--javascript {
+                            font-size: 3.6rem;
+                            top: 0rem;
+                            left: 24rem;
+                        }
+                        &--html {
+                            font-size: 2.6rem;
+                            top: 8rem;
+                            right: 1rem;
+                        }
+                        &--css {
+                            font-size: 2.6rem;
+                            bottom: -0.5rem;
+                            left: 12rem;
+                        }
+                        &--vue {
+                            font-size: 1.6rem;
+                            right: 7rem;
+                            bottom: 2rem;
+                        }
+                        &--git {
+                            font-size: 1.4rem;
+                            right: -10rem;
+                            bottom: 14rem;
+                        }
+                        &--react {
+                            font-size: 2.3rem;
+                            bottom: 7rem;
+                            left: unset;
+                            right: -3rem;
+                        }
+                        &--sass {
+                            font-size: 1.7rem;
+                            right: -4rem;
+                            bottom: 22rem;
+                        }
+                    }
+                }
+            }
+
+            .start__bottom {
+                display: none;
+            }
+
+            .start__image {
+                display: block;
+                width: 36%;
+                margin-right: 5rem;
+                transform: rotateY(180deg);
+            }
+        }
+    }
+}
