@@ -42,8 +42,8 @@ export const Start = () => {
 
             const motionLimit = 25;
 
-            let newMotionX = motion.current.x + event.rotationRate.alpha / 10;
             let newMotionY = motion.current.y + event.rotationRate.beta / 10;
+            let newMotionX = motion.current.x + event.rotationRate.alpha / 10;
 
             Math.abs(newMotionX) >= motionLimit &&
                 (newMotionX = motion.current.x);
@@ -59,6 +59,24 @@ export const Start = () => {
             let rotationY = -motion.current.y;
             let translationX = motion.current.y;
             let translationY = motion.current.x;
+
+            if (window.orientation === 90) {
+                let auxX = translationX;
+                translationX = translationY;
+                translationY = -auxX;
+
+                auxX = rotationX;
+                rotationX = rotationY;
+                rotationY = -auxX;
+            } else if (window.orientation === -90) {
+                let auxX = translationX;
+                translationX = -translationY;
+                translationY = auxX;
+
+                auxX = rotationX;
+                rotationX = -rotationY;
+                rotationY = auxX;
+            }
 
             setRotation({
                 x: rotationX,
