@@ -1,208 +1,78 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 
 import './start.scss';
 
 import arrowUpImg from '../assets/svg/arrow-up.svg';
 import developerImg from '../assets/img/developer.png';
 
+import { useMotion } from '../hooks/useMotion';
+
 export const Start = () => {
-    const [showPermBtn, setShowPermBtn] = useState(false);
+    const { enableMotion, showPermBtn, motion1, motion2, motion3 } =
+        useMotion();
 
-    const [, forceUpdate] = useState(null);
+    const touchStartPosition = useRef(0);
+    const touchStartTime = useRef(0);
+    const touchEndPosition = useRef(0);
+    const touchEndTime = useRef(0);
+    const touchDistancePercent = useRef(0);
 
-    const initialMotion = useRef({ x: null, y: null });
-    const motion = useRef({ x: 0, y: 0 });
-    const rotation = useRef({ x: 0, y: 0 });
-    const translation = useRef({ x: 0, y: 0 });
+    const [elementMoving, setElementMoving] = useState(0);
+    const [transitionSpeed, setTransitionSpeed] = useState('');
 
-    const setInitialMotion = (data) => {
-        initialMotion.current = data;
-        forceUpdate(data);
-    };
-    const setMotion = (data) => {
-        motion.current = data;
-        forceUpdate(data);
-    };
-    const setRotation = (data) => {
-        rotation.current = data;
-        forceUpdate(data);
-    };
-    const setTranslation = (data) => {
-        translation.current = data;
-        forceUpdate(data);
+    const handleTouchStart = (event) => {
+        setTransitionSpeed('');
+        touchStartPosition.current = event.touches[0].clientY;
+        touchStartTime.current = Date.now();
     };
 
-    /* Función para pedir permiso para activar los sensores de movimiento en IOS 13 o superior */
-    const enableMotion = () => {
-        setShowPermBtn(false);
-        DeviceMotionEvent.requestPermission();
+    const handleTouchMove = (event) => {
+        const touchPosition = event.touches[0].clientY;
+        const touchDistance = touchStartPosition.current - touchPosition;
+        touchDistancePercent.current = (touchDistance * 100) / screen.height;
+
+        if (touchDistance > 0) {
+            setElementMoving(-touchDistancePercent.current);
+        }
     };
 
-    useEffect(() => {
-        const motionLimit = 25;
+    const handleTouchEnd = (event) => {
+        touchEndPosition.current = event.changedTouches[0].clientY;
+        touchEndTime.current = Date.now();
 
-        const ua = navigator.userAgent.toLowerCase();
-        const isAndroid = ua.indexOf('android') > -1;
+        const totalTime = touchEndTime.current - touchStartTime.current;
+        const touchSpeed = touchDistancePercent.current / totalTime; // percent/ms
 
-        /* HANDLE ORIENTATION */
-        const handleOrientationEvent = (event) => {
-            /* Aqui hace falta usar el initial motion */
-            let beta = (event.beta - 90) / 3;
-            let gamma = event.gamma / 3;
-
-            let newMotionY = gamma * 5;
-            let newMotionX = beta * 5;
-
-            if (!initialMotion.current.x && !initialMotion.current.y) {
-                setInitialMotion({ x: newMotionX, y: newMotionY });
+        if (touchDistancePercent.current >= 40 || touchSpeed > 0.1) {
+            if (touchSpeed > 0.1) {
+                setTransitionSpeed('.4s');
+            } else {
+                setTransitionSpeed('.5s');
             }
-
-            newMotionX = newMotionX - initialMotion.current.x;
-            newMotionY = newMotionY - initialMotion.current.y;
-
-            Math.abs(newMotionX) >= motionLimit &&
-                (newMotionX = motion.current.x);
-            Math.abs(newMotionY) >= motionLimit &&
-                (newMotionY = motion.current.y);
-
-            setMotion({
-                x: newMotionX,
-                y: newMotionY,
-            });
-
-            let rotationX = motion.current.x * 1.3;
-            let rotationY = -motion.current.y;
-            let translationX = motion.current.y;
-            let translationY = motion.current.x;
-
-            setRotation({
-                x: rotationX,
-                y: rotationY,
-            });
-
-            setTranslation({
-                x: translationX,
-                y: translationY,
-            });
-        };
-
-        /* HANDLE MOTION */
-        const handleMotionEvent = (event) => {
-            setShowPermBtn(false);
-
-            let newMotionY = motion.current.y + event.rotationRate.beta / 10;
-            let newMotionX = motion.current.x + event.rotationRate.alpha / 10;
-
-            Math.abs(newMotionX) >= motionLimit &&
-                (newMotionX = motion.current.x);
-            Math.abs(newMotionY) >= motionLimit &&
-                (newMotionY = motion.current.y);
-
-            setMotion({
-                x: newMotionX,
-                y: newMotionY,
-            });
-
-            let rotationX = motion.current.x * 1.3;
-            let rotationY = -motion.current.y;
-            let translationX = motion.current.y;
-            let translationY = motion.current.x;
-
-            if (window.orientation === 90) {
-                let auxX = translationX;
-                translationX = translationY;
-                translationY = -auxX;
-
-                auxX = rotationX;
-                rotationX = rotationY;
-                rotationY = -auxX;
-            } else if (window.orientation === -90) {
-                let auxX = translationX;
-                translationX = -translationY;
-                translationY = auxX;
-
-                auxX = rotationX;
-                rotationX = -rotationY;
-                rotationY = auxX;
-            }
-
-            setRotation({
-                x: rotationX,
-                y: rotationY,
-            });
-
-            setTranslation({
-                x: translationX,
-                y: translationY,
-            });
-        };
-
-        if (isAndroid) {
-            window.addEventListener(
-                'deviceorientation',
-                handleOrientationEvent
-            );
+            setElementMoving(-100);
         } else {
-            window.addEventListener('devicemotion', handleMotionEvent);
+            setTransitionSpeed('.3s');
+            setElementMoving(0);
         }
-
-        window.addEventListener('orientationchange', () => {
-            setMotion({ x: 0, y: 0 });
-            setRotation({ x: 0, y: 0 });
-            setTranslation({ x: 0, y: 0 });
-        });
-
-        return () => {
-            window.removeEventListener('devicemotion', handleMotionEvent);
-            window.removeEventListener(
-                'deviceorientation',
-                handleOrientationEvent
-            );
-        };
-    }, []);
-
-    useEffect(() => {
-        if (
-            window.DeviceMotionEvent &&
-            typeof DeviceMotionEvent.requestPermission === 'function'
-        ) {
-            setShowPermBtn(true);
-        }
-    }, []);
-
-    /* Estilos para el movimiento de los elementos */
-    const motion3 = {
-        transform: `
-        translateX(${translation.current.x / 8}px)
-        translateY(${translation.current.y / 8}px)`,
-        transition: '',
-    };
-
-    const motion2 = {
-        transform: `
-        rotateY(${rotation.current.y / 4}deg) 
-        rotateX(${rotation.current.x / 4}deg) 
-        translateX(${translation.current.x / 2}px)
-        translateY(${translation.current.y / 2}px)`,
-        transition: '',
-    };
-
-    const motion1 = {
-        transform: `
-        rotateY(${rotation.current.y}deg) 
-        rotateX(${rotation.current.x}deg) 
-        translateX(${translation.current.x}px)
-        translateY(${translation.current.y}px)`,
-        transition: '',
     };
 
     return (
         <>
-            <div className="container container--start">
+            <div
+                className={`container container--start `}
+                onTouchMove={handleTouchMove}
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+                style={{
+                    transform: `translateY(${elementMoving}%)`,
+                    opacity: `${elementMoving + 100}%`,
+                    transition: `all linear ${transitionSpeed}`,
+                }}
+            >
                 <div className="start">
                     <div className="start__frame" style={motion3}></div>
 
-                    <div className="start__items" style={{ motionZ1: motion1 }}>
+                    <div className="start__items" style={{ motion1 }}>
                         <div className="start__name " style={motion2}>
                             <h1>
                                 Willy <br /> Antunez
@@ -278,13 +148,15 @@ export const Start = () => {
                     />
                 </div>
 
-                <div
-                    className={`floatingBtn ${
-                        showPermBtn ? '' : 'floatingBtn--hidden'
-                    }`}
-                >
-                    <button onClick={enableMotion}>Activa la magia</button>
-                </div>
+                {showPermBtn && (
+                    <div
+                        className={`floatingBtn ${
+                            showPermBtn ? '' : 'floatingBtn--hidden'
+                        }`}
+                    >
+                        <button onClick={enableMotion}>Activa la magia</button>
+                    </div>
+                )}
             </div>
         </>
     );
