@@ -1,23 +1,26 @@
 html,
 body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+    width: 100vw;
 }
 
 #root {
-    min-height: 100%;
+    width: 100%;
 }
 
 html {
+    -webkit-text-size-adjust: none;
     font-size: 62.5%;
 }
 
 body {
     font-size: 1.6rem;
     font-family: 'Roboto', sans-serif;
+    background-color: #000000;
+}
+
+* {
+    padding: 0;
+    margin: 0;
 }
 
 *,

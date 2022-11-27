@@ -146,6 +146,12 @@ export const Start = () => {
             window.addEventListener('devicemotion', handleMotionEvent);
         }
 
+        window.addEventListener('orientationchange', () => {
+            setMotion({ x: 0, y: 0 });
+            setRotation({ x: 0, y: 0 });
+            setTranslation({ x: 0, y: 0 });
+        });
+
         return () => {
             window.removeEventListener('devicemotion', handleMotionEvent);
             window.removeEventListener(
@@ -191,111 +197,95 @@ export const Start = () => {
     };
 
     return (
-        <div className="start">
-            <div className="start__container">
-                <div className="start__frame" style={motion3}></div>
-                <div className="start__elements" style={{ motionZ1: motion1 }}>
-                    <div
-                        className="start__text start__text--title"
-                        style={motion2}
-                    >
-                        <h1>
-                            Willy <br /> Antunez
-                        </h1>
-                    </div>
-                    <div
-                        className="start__text start__text--subtitle"
-                        style={motion2}
-                    >
-                        <h2>Web developer</h2>
-                    </div>
-                    <div className="start__technologies">
-                        <div
-                            className="start__text start__text--javascript"
-                            style={motion1}
-                        >
-                            JS
-                        </div>
-                        <div
-                            className="start__text start__text--html"
-                            style={motion1}
-                        >
-                            {'<HTML>'}
-                        </div>
-                        <div
-                            className="start__text start__text--css"
-                            style={motion1}
-                        >
-                            CSS
-                        </div>
-                        <div
-                            className="start__text start__text--vue"
-                            style={motion1}
-                        >
-                            Vue.js
-                        </div>
-                        <div
-                            className="start__text start__text--git"
-                            style={motion1}
-                        >
-                            Git/Github
-                        </div>
-                        <div
-                            className="start__text start__text--react"
-                            style={motion1}
-                        >
-                            React.js
-                        </div>
-                        <div
-                            className="start__text start__text--sass"
-                            style={motion1}
-                        >
-                            SASS
-                        </div>
-                    </div>
-                </div>
+        <>
+            <div className="container container--start">
+                <div className="start">
+                    <div className="start__frame" style={motion3}></div>
 
-                <div className="start__bottom">
-                    <p className="start__text start__text--bold">
-                        Te doy la bienvenida
-                    </p>
-                    <p className="start__text">Desliza hacia arriba</p>
+                    <div className="start__items" style={{ motionZ1: motion1 }}>
+                        <div className="start__name " style={motion2}>
+                            <h1>
+                                Willy <br /> Antunez
+                            </h1>
+                        </div>
+
+                        <div className="start__title " style={motion2}>
+                            <h2>Web developer</h2>
+                        </div>
+
+                        <div className="start__technologies">
+                            <div
+                                className="start__item start__item--javascript"
+                                style={motion1}
+                            >
+                                JS
+                            </div>
+                            <div
+                                className="start__item start__item--html"
+                                style={motion1}
+                            >
+                                {'<HTML>'}
+                            </div>
+                            <div
+                                className="start__item start__item--css"
+                                style={motion1}
+                            >
+                                CSS
+                            </div>
+                            <div
+                                className="start__item start__item--vue"
+                                style={motion1}
+                            >
+                                Vue.js
+                            </div>
+                            <div
+                                className="start__item start__item--git"
+                                style={motion1}
+                            >
+                                Git/Github
+                            </div>
+                            <div
+                                className="start__item start__item--react"
+                                style={motion1}
+                            >
+                                React.js
+                            </div>
+                            <div
+                                className="start__item start__item--sass"
+                                style={motion1}
+                            >
+                                SASS
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="start__bottom">
+                        <p className="start__text start__text--bold">
+                            Te doy la bienvenida
+                        </p>
+                        <p className="start__text">Desliza hacia arriba</p>
+                        <img
+                            className="start__arrow"
+                            src={arrowUpImg}
+                            alt="Flecha apuntando hacia arriba"
+                        />
+                    </div>
+
                     <img
-                        className="start__arrow"
-                        src={arrowUpImg}
-                        alt="Flecha apuntando hacia arriba"
+                        src={developerImg}
+                        alt="developer"
+                        className="start__image"
                     />
                 </div>
-
-                <img
-                    src={developerImg}
-                    alt="developer"
-                    className="start__image"
-                />
 
                 <div
                     className={`floatingBtn ${
                         showPermBtn ? '' : 'floatingBtn--hidden'
                     }`}
                 >
-                    <button
-                        className="floatingBtn__button"
-                        onClick={enableMotion}
-                    >
-                        Activa la magia
-                    </button>
+                    <button onClick={enableMotion}>Activa la magia</button>
                 </div>
-
-                {/* <div className={`floatingBtn $`}>
-                    <button
-                        className="floatingBtn__button"
-                        onClick={enableMotion}
-                    >
-                        Rotation {JSON.stringify(rotation)} <br />
-                        Initialmotion {JSON.stringify(initialMotion)} <br />
-                    </button>
-                </div> */}
             </div>
-        </div>
+        </>
     );
 };
