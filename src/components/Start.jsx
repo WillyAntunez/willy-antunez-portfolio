@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
 
 import './start.scss';
 
@@ -6,67 +6,27 @@ import arrowUpImg from '../assets/svg/arrow-up.svg';
 import developerImg from '../assets/img/developer.png';
 
 import { useMotion } from '../hooks/useMotion';
+import { useUnlock } from '../hooks/useUnlock';
 
 export const Start = () => {
     const { enableMotion, showPermBtn, motion1, motion2, motion3 } =
         useMotion();
 
-    const touchStartPosition = useRef(0);
-    const touchStartTime = useRef(0);
-    const touchEndPosition = useRef(0);
-    const touchEndTime = useRef(0);
-    const touchDistancePercent = useRef(0);
-
-    const [elementMoving, setElementMoving] = useState(0);
-    const [transitionSpeed, setTransitionSpeed] = useState('');
-
-    const handleTouchStart = (event) => {
-        setTransitionSpeed('');
-        touchStartPosition.current = event.touches[0].clientY;
-        touchStartTime.current = Date.now();
-    };
-
-    const handleTouchMove = (event) => {
-        const touchPosition = event.touches[0].clientY;
-        const touchDistance = touchStartPosition.current - touchPosition;
-        touchDistancePercent.current = (touchDistance * 100) / screen.height;
-
-        if (touchDistance > 0) {
-            setElementMoving(-touchDistancePercent.current);
-        }
-    };
-
-    const handleTouchEnd = (event) => {
-        touchEndPosition.current = event.changedTouches[0].clientY;
-        touchEndTime.current = Date.now();
-
-        const totalTime = touchEndTime.current - touchStartTime.current;
-        const touchSpeed = touchDistancePercent.current / totalTime; // percent/ms
-
-        if (touchDistancePercent.current >= 40 || touchSpeed > 0.1) {
-            if (touchSpeed > 0.1) {
-                setTransitionSpeed('.4s');
-            } else {
-                setTransitionSpeed('.5s');
-            }
-            setElementMoving(-100);
-        } else {
-            setTransitionSpeed('.3s');
-            setElementMoving(0);
-        }
-    };
+    const { unLockEvents, elementMoving, transitionSpeed } = useUnlock({
+        maxWidth: 769,
+    });
 
     return (
         <>
             <div
                 className={`container container--start `}
-                onTouchMove={handleTouchMove}
-                onTouchStart={handleTouchStart}
-                onTouchEnd={handleTouchEnd}
+                onTouchMove={unLockEvents.handleTouchMove}
+                onTouchStart={unLockEvents.handleTouchStart}
+                onTouchEnd={unLockEvents.handleTouchEnd}
                 style={{
                     transform: `translateY(${elementMoving}%)`,
                     opacity: `${elementMoving + 100}%`,
-                    transition: `all linear ${transitionSpeed}`,
+                    transition: `all  ${transitionSpeed}`,
                 }}
             >
                 <div className="start">

@@ -28,3 +28,16 @@ body {
 *::before {
     box-sizing: border-box;
 }
+
+@media (max-width: 769px) {
+    .no-scroll {
+        touch-action: none;
+    }
+}
+
+.container {
+    &--main {
+        width: 100%;
+        min-height: 100%;
+    }
+}

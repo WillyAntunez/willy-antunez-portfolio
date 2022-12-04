@@ -11,7 +11,8 @@ $black-gray: #1e1e1e;
 .container {
     &--start {
         width: 100%;
-        height: -webkit-fill-available;
+        height: 100%;
+        height: stretch;
         background-color: $primary-orange;
         position: fixed;
     }
@@ -366,6 +367,9 @@ $black-gray: #1e1e1e;
             height: 40rem;
             background-color: $primary-orange;
             position: unset;
+            transform: translateY(0) !important;
+            opacity: 100% !important;
+            transition: none !important;
         }
     }
 
