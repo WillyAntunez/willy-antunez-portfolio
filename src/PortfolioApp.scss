@@ -1,3 +1,6 @@
+$dark-orange: #ff6e40;
+$primary-blue: rgb(18, 131, 179);
+
 html,
 body {
     width: 100vw;
@@ -39,5 +42,14 @@ body {
     &--main {
         width: 100%;
         min-height: 100%;
+    }
+}
+
+.text {
+    &--blueback {
+        filter: drop-shadow(-0.6rem -0.4rem 0rem $primary-blue);
+    }
+    &--orangeback {
+        filter: drop-shadow(-0.6rem -0.4rem 0rem $dark-orange);
     }
 }

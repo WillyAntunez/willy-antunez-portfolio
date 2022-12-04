@@ -20,6 +20,7 @@ export const useUnlock = ({ maxWidth }) => {
     };
 
     const goDown = (timeStringS = '.5s') => {
+        if (document.body.classList.contains('no-scroll') && !!isUp.current) return;
         document.body.classList.add('no-scroll');
         setTransitionSpeed(timeStringS);
         setElementMoving(0);
@@ -28,6 +29,7 @@ export const useUnlock = ({ maxWidth }) => {
 
     const handleTouchStart = (event) => {
         if (document.body.clientWidth > maxWidth) return;
+
         setTransitionSpeed('');
 
         touchStartPosition.current = event.touches[0].clientY;

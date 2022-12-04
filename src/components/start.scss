@@ -68,7 +68,6 @@ $black-gray: #1e1e1e;
     }
 
     &__name {
-        filter: drop-shadow(-0.6rem -0.4rem 0rem $primary-blue);
         font-size: 2.6rem;
         line-height: 5.5rem;
         margin-left: 3rem;
@@ -76,7 +75,6 @@ $black-gray: #1e1e1e;
 
     &__title {
         font-size: 2rem;
-        filter: drop-shadow(-0.6rem -0.4rem 0rem $dark-orange);
         margin-left: 3rem;
     }
 

@@ -59,13 +59,13 @@ export const Start = () => {
                     <div className="start__frame" style={motion3}></div>
 
                     <div className="start__items" style={{ motion1 }}>
-                        <div className="start__name " style={motion2}>
+                        <div className="start__name text--blueback" style={motion2}>
                             <h1>
                                 Willy <br /> Antunez
                             </h1>
                         </div>
 
-                        <div className="start__title " style={motion2}>
+                        <div className="start__title text--orangeback" style={motion2}>
                             <h2>Web developer</h2>
                         </div>
 
