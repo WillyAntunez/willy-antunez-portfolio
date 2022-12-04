@@ -12,14 +12,14 @@ export const useUnlock = ({ maxWidth }) => {
 
     const isUp = useRef(false);
 
-    const goUp = (timeStringS) => {
+    const goUp = (timeStringS = '.5s') => {
         document.body.classList.remove('no-scroll');
         setTransitionSpeed(timeStringS);
         setElementMoving(-100);
         isUp.current = true;
     };
 
-    const goDown = (timeStringS) => {
+    const goDown = (timeStringS = '.5s') => {
         document.body.classList.add('no-scroll');
         setTransitionSpeed(timeStringS);
         setElementMoving(0);
@@ -132,5 +132,6 @@ export const useUnlock = ({ maxWidth }) => {
         elementMoving,
         transitionSpeed,
         isUp: isUp.current,
+        lock: goDown,
     };
 };
