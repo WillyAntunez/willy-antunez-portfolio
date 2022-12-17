@@ -179,6 +179,7 @@ $black-gray: #1e1e1e;
     }
 }
 
+/* LOCK BTN */
 .lockbtn {
     position: fixed;
     right: 2rem;
@@ -463,5 +464,9 @@ $black-gray: #1e1e1e;
             width: 35%;
             transform: rotateY(180deg);
         }
+    }
+
+    .lockbtn {
+        display: none;
     }
 }

@@ -7,8 +7,8 @@ import { NavBar } from './components/NavBar';
 function PortfolioApp() {
     return (
         <div className="container--main">
-            <Start />
             <NavBar />
+            <Start />
 
             <h1 style={{ color: 'white' }}>hola</h1>
             <h1 style={{ color: 'white' }}>hola</h1>
