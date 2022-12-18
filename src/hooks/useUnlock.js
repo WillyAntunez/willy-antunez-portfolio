@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-export const useUnlock = ({ maxWidth }) => {
+export const useUnlock = ({ maxWidth = 9999, maxHeight = 9999 }) => {
     const touchStartPosition = useRef(0);
     const touchStartTime = useRef(0);
     const touchEndPosition = useRef(0);
@@ -27,8 +27,19 @@ export const useUnlock = ({ maxWidth }) => {
         isUp.current = false;
     };
 
+    const validateResolution = () => {
+        if (maxWidth && document.body.clientWidth > maxWidth) {
+            return false;
+        }
+        if (maxHeight && document.body.clientHeight > maxHeight) {
+            return false;
+        }
+
+        return true;
+    };
+
     const handleTouchStart = (event) => {
-        if (document.body.clientWidth > maxWidth) return;
+        if (validateResolution()) return;
 
         setTransitionSpeed('');
 
@@ -37,7 +48,7 @@ export const useUnlock = ({ maxWidth }) => {
     };
 
     const handleTouchMove = (event) => {
-        if (document.body.clientWidth > maxWidth) return;
+        if (validateResolution()) return;
 
         const touchPosition = event.touches[0].clientY;
         const touchDistance = touchStartPosition.current - touchPosition;
@@ -49,7 +60,7 @@ export const useUnlock = ({ maxWidth }) => {
     };
 
     const handleTouchEnd = (event) => {
-        if (document.body.clientWidth > maxWidth) return;
+        if (validateResolution()) return;
 
         touchEndPosition.current = event.changedTouches[0].clientY;
         touchEndTime.current = Date.now();

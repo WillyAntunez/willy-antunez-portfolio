@@ -13,6 +13,11 @@ $dark-orange: #ff6e40;
     z-index: 70;
 
     transition: all ease-in-out 0.5s;
+
+    &--hidden {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
 }
 
 .nav {
@@ -78,15 +83,6 @@ $dark-orange: #ff6e40;
     background-color: #fff;
 }
 
-@media (max-width: 768px) {
-    .nav__container {
-        &--hidden {
-            opacity: 0;
-            transform: translateX(-100%);
-        }
-    }
-}
-
 /* LAPTOP */
 @media (min-width: 769px) and (min-height: 426px) {
     .nav__container {
@@ -96,6 +92,11 @@ $dark-orange: #ff6e40;
         background-color: $primary-orange;
         transition: none;
         padding: 1rem 3rem;
+
+        &--hidden {
+            opacity: 100%;
+            transform: translateX(0);
+        }
     }
 
     .nav {

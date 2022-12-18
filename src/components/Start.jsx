@@ -17,7 +17,7 @@ export const Start = () => {
 
     const { enableMotion, showPermBtn, motion1, motion2, motion3 } = useMotion();
     const { unLockEvents, elementMoving, transitionSpeed, lock } = useUnlock({
-        maxWidth: 769,
+        maxHeight: 425,
     });
 
     useEffect(() => {
