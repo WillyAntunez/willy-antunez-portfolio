@@ -1,0 +1,105 @@
+$primary-blue: rgb(18, 131, 179);
+$white: #fff;
+$primary-orange: #ffad4d;
+$black-gray: #1e1e1e;
+
+.container--about {
+    width: 100%;
+    height: 100vh;
+    max-height: -webkit-fill-available;
+    background-color: $primary-blue;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    padding-top: 3rem;
+    height: 100%;
+    width: 100%;
+
+    &__welcome {
+        color: $white;
+        font-weight: bold;
+        font-size: 1.6rem;
+    }
+
+    &__title {
+        font-size: 3rem;
+        margin-top: 1rem;
+        color: white;
+        filter: drop-shadow(-0.4rem -0.2rem 0rem $primary-orange);
+    }
+
+    .photo-composition {
+        position: relative;
+        margin-bottom: 4rem;
+        margin-top: 1rem;
+
+        &__background {
+            background-color: $primary-orange;
+            width: 167.67px;
+            height: 167.67px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            filter: drop-shadow(0 0.4rem 0.4rem rgba(0, 0, 0, 0.25));
+        }
+
+        &__img {
+            width: 157.14px;
+            height: 157.14px;
+            transform: translateX(0.5rem);
+        }
+
+        &__arrow {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            position: absolute;
+            left: -54px;
+            bottom: -31px;
+            img {
+                rotate: -50deg;
+                width: 4rem;
+            }
+            span {
+                font-family: 'Gamja Flower', cursive;
+                font-size: 1.7rem;
+            }
+        }
+    }
+
+    &__description {
+        font-size: 1.5rem;
+        color: white;
+        font-weight: 400;
+    }
+
+    &__button {
+        margin-top: auto;
+        background-image: url('../assets/img/download-document.png');
+        background-size: 20%;
+        background-repeat: no-repeat;
+        background-color: $white;
+        background-position: 1.3rem center;
+        color: $black-gray;
+        height: 40px;
+        border-radius: 0.6rem;
+        padding-left: 5rem;
+        padding-right: 1rem;
+        border: none;
+        font-weight: bold;
+        filter: drop-shadow(0 0.4rem 0.4rem rgba(0, 0, 0, 0.25));
+    }
+}
+
+@media (min-height: 600px) {
+    .about {
+        padding-bottom: 4rem;
+        &__description {
+            font-size: 1.7rem;
+        }
+    }
+}
