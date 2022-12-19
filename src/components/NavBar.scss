@@ -1,9 +1,4 @@
-$white: #fff;
-$transparent-black: rgba(0, 0, 0, 0.4);
-$primary-orange: #ffad4d;
-$transparent-white: rgba(255, 255, 255, 0.41);
-$primary-blue: rgb(18, 131, 179);
-$dark-orange: #ff6e40;
+@import '../scss/variables';
 
 .nav__container {
     position: fixed;

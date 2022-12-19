@@ -1,12 +1,6 @@
-$primary-orange: #ffad4d;
-$dark-orange: #ff6e40;
-$primary-blue: rgb(18, 131, 179);
-$black: #000;
-$white: #fff;
-$black-gray: #1e1e1e;
+@import '../scss/variables';
 
-/* CELPHONE PORTRAIT */
-/* Moblie first h:320px */
+/* CELPHONE PORTRAIT */ /* Moblie first h:320px */
 /* ******************** */
 .container {
     &--start {
