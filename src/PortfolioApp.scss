@@ -31,7 +31,13 @@ body {
     box-sizing: border-box;
 }
 
-@media (max-width: 769px) {
+@media (max-width: 768px) and (orientation: portrait) {
+    .no-scroll {
+        touch-action: none;
+    }
+}
+
+@media (max-width: 768px) and (max-height: 425px) and (orientation: landscape) {
     .no-scroll {
         touch-action: none;
     }

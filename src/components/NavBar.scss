@@ -78,6 +78,26 @@
     background-color: #fff;
 }
 
+/* Mobile landscape */
+@media only screen and (max-height: 450px) and (orientation: landscape) {
+    .nav {
+        padding: 1.4em 2rem 1rem 4rem;
+
+        &__items {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        &__name {
+            font-size: 2rem;
+        }
+
+        &__title {
+            font-size: 1.6rem;
+        }
+    }
+}
+
 /* LAPTOP */
 @media (min-width: 769px) and (min-height: 426px) {
     .nav__container {
@@ -105,6 +125,7 @@
         margin: 0 auto;
 
         &__items {
+            display: flex;
             flex-direction: row;
         }
 
