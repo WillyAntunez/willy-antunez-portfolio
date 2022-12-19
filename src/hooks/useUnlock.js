@@ -84,7 +84,7 @@ export const useUnlock = ({ maxWidth = 9999, maxHeight = 9999 }) => {
 
     useEffect(() => {
         const handleDocTouchMove = (event) => {
-            if (!isUp.current && validateResolution()) {
+            if (!isUp.current) {
                 if (event.cancelable) {
                     event.preventDefault();
                 }

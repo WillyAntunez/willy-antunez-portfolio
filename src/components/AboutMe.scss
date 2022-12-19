@@ -29,45 +29,6 @@
         filter: drop-shadow(-0.4rem -0.2rem 0rem $primary-orange);
     }
 
-    .photo-composition {
-        position: relative;
-        margin-bottom: 4rem;
-        margin-top: 1rem;
-
-        &__background {
-            background-color: $primary-orange;
-            width: 167.67px;
-            height: 167.67px;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            filter: drop-shadow(0 0.4rem 0.4rem rgba(0, 0, 0, 0.25));
-        }
-
-        &__img {
-            width: 157.14px;
-            height: 157.14px;
-            transform: translateX(0.5rem);
-        }
-
-        &__arrow {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            position: absolute;
-            left: -54px;
-            bottom: -31px;
-            img {
-                rotate: -50deg;
-                width: 4rem;
-            }
-            span {
-                font-family: 'Gamja Flower', cursive;
-                font-size: 1.7rem;
-            }
-        }
-    }
-
     &__description {
         font-size: 1.5rem;
         color: white;
@@ -92,11 +53,95 @@
     }
 }
 
+.photo-composition {
+    position: relative;
+    margin-bottom: 4rem;
+    margin-top: 1rem;
+
+    &__background {
+        background-color: $primary-orange;
+        width: 167.67px;
+        height: 167.67px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        filter: drop-shadow(0 0.4rem 0.4rem rgba(0, 0, 0, 0.25));
+    }
+
+    &__img {
+        width: 157.14px;
+        height: 157.14px;
+        transform: translateX(0.5rem);
+    }
+
+    &__arrow {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        position: absolute;
+        left: -54px;
+        bottom: -31px;
+        img {
+            rotate: -50deg;
+            width: 4rem;
+        }
+        span {
+            font-family: 'Gamja Flower', cursive;
+            font-size: 1.7rem;
+        }
+    }
+}
+
 @media (min-height: 600px) {
     .about {
         padding-bottom: 4rem;
         &__description {
             font-size: 1.7rem;
         }
+    }
+}
+
+/* PHONE LANDSCAPE */
+
+@media only screen and (max-height: 450px) and (orientation: landscape) {
+    .about {
+        display: grid;
+        grid-template-columns: repeat(2, 45%);
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas:
+            'welcome .'
+            'title text'
+            'photo text'
+            'photo  button';
+        grid-auto-flow: row;
+
+        justify-items: center;
+        align-items: start;
+        justify-content: center;
+
+        max-width: 700px;
+        margin: 0 auto;
+
+        &__welcome {
+            grid-area: welcome;
+        }
+
+        &__title {
+            grid-area: title;
+            margin: 0;
+        }
+
+        &__description {
+            grid-area: text;
+        }
+
+        &__button {
+            grid-area: button;
+        }
+    }
+
+    .photo-composition {
+        margin: 0;
+        grid-area: photo;
     }
 }
