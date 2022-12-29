@@ -1,9 +1,7 @@
 import React from 'react';
 import './PortfolioApp.scss';
 
-import { Start } from './components/Start';
-import { NavBar } from './components/NavBar';
-import { AboutMe } from './components/AboutMe';
+import { Start,  NavBar,AboutMe, Skills } from './components';
 
 function PortfolioApp() {
     return (
@@ -11,42 +9,7 @@ function PortfolioApp() {
             <NavBar />
             <Start />
             <AboutMe />
-
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
-            <h1 style={{ color: 'white' }}>hola</h1>
+            <Skills />
         </div>
     );
 }
