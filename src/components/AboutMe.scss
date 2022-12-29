@@ -44,50 +44,144 @@
         background-position: 1.3rem center;
         color: $black-gray;
         height: 40px;
-        border-radius: 0.6rem;
+        border-radius: 1rem;
         padding-left: 5rem;
-        padding-right: 1rem;
+        padding-right: 2rem;
         border: none;
         font-weight: bold;
         filter: drop-shadow(0 0.4rem 0.4rem rgba(0, 0, 0, 0.25));
+        cursor: pointer;
     }
 }
 
 .photo-composition {
     position: relative;
-    margin-bottom: 4rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: end;
     margin-top: 1rem;
+    width: 22rem;
+    height: 22rem;
+    margin-right: 3rem;
+    margin-bottom: 1rem;
 
     &__background {
         background-color: $primary-orange;
-        width: 167.67px;
-        height: 167.67px;
+        width: 84%;
+        height: 84%;
         display: flex;
         justify-content: flex-end;
         align-items: center;
         filter: drop-shadow(0 0.4rem 0.4rem rgba(0, 0, 0, 0.25));
+        margin-right: 2%;
     }
 
     &__img {
-        width: 157.14px;
-        height: 157.14px;
-        transform: translateX(0.5rem);
+        width: 93%;
+        height: 93%;
+        transform: translateX(2%);
     }
 
     &__arrow {
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
+        align-items: flex-start;
         position: absolute;
-        left: -54px;
-        bottom: -31px;
+        left: 0px;
+        bottom: 0rem;
+        width: 70%;
         img {
             rotate: -50deg;
-            width: 4rem;
+            width: 35%;
         }
         span {
             font-family: 'Gamja Flower', cursive;
-            font-size: 1.7rem;
+            font-size: 2.3rem;
+        }
+    }
+}
+
+/* PHONE LANDSCAPE */
+@media only screen and (max-height: 450px) and (orientation: landscape) {
+    .about {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: repeat(3, auto) 1fr;
+        grid-template-areas:
+            'welcome welcome'
+            'title text'
+            'photo text'
+            'photo  button';
+        grid-auto-flow: row;
+
+        justify-items: center;
+        align-items: start;
+        justify-content: center;
+
+        grid-column-gap: 2rem;
+        grid-row-gap: 0.4rem;
+
+        max-width: 90%;
+        margin: 0 auto;
+
+        &__welcome {
+            grid-area: welcome;
+            justify-self: start;
+            margin-left: 3rem;
+        }
+
+        &__title {
+            grid-area: title;
+            margin: 0;
+            justify-self: end;
+            margin-bottom: 0.4rem;
+        }
+
+        &__description {
+            grid-area: text;
+            margin-top: 1rem;
+        }
+
+        &__button {
+            grid-area: button;
+            margin-bottom: auto;
+        }
+    }
+
+    .photo-composition {
+        margin: 0;
+        grid-area: photo;
+        justify-self: end;
+        width: 20rem;
+        height: 20rem;
+
+        &__arrow {
+            span {
+                font-size: 1.8rem;
+            }
+        }
+    }
+}
+
+/* SMALL PHONES */
+@media screen and (max-height: 480px) {
+    .about {
+        &__description {
+            font-size: 1.3rem;
+        }
+    }
+
+    .photo-composition {
+        margin: 0;
+        grid-area: photo;
+        justify-self: end;
+        width: 17rem;
+        height: 17rem;
+
+        &__arrow {
+            span {
+                font-size: 1.6rem;
+            }
         }
     }
 }
@@ -101,15 +195,28 @@
     }
 }
 
-/* PHONE LANDSCAPE */
+/* MEDIUM PHONE */
+@media only screen and (min-height: 360px) and (min-width: 640px) and (max-width: 768px) and (orientation: landscape) {
+    .about {
+        .about__description {
+            font-size: 1.45rem;
+        }
+    }
+}
 
-@media only screen and (max-height: 450px) and (orientation: landscape) {
+/* BIG PHONES */
+@media only screen and (min-width: 600px) {
+    .container--about {
+        height: unset;
+        padding: 0 2rem;
+    }
+
     .about {
         display: grid;
-        grid-template-columns: repeat(2, 45%);
-        grid-template-rows: repeat(4, auto);
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: repeat(3, auto) 1fr;
         grid-template-areas:
-            'welcome .'
+            'welcome welcome'
             'title text'
             'photo text'
             'photo  button';
@@ -119,20 +226,29 @@
         align-items: start;
         justify-content: center;
 
-        max-width: 700px;
+        grid-column-gap: 2rem;
+        grid-row-gap: 0.4rem;
+
+        width: 100%;
         margin: 0 auto;
 
         &__welcome {
             grid-area: welcome;
+            justify-self: start;
+            margin-left: 3rem;
         }
 
         &__title {
             grid-area: title;
             margin: 0;
+            justify-self: end;
+            margin-bottom: 0.4rem;
         }
 
         &__description {
             grid-area: text;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
         }
 
         &__button {
@@ -143,5 +259,121 @@
     .photo-composition {
         margin: 0;
         grid-area: photo;
+        justify-self: end;
+        width: 20rem;
+        height: 20rem;
+
+        &__arrow {
+            span {
+                font-size: 1.8rem;
+            }
+        }
     }
 }
+
+/* MEDIUM TABLET */
+@media screen and (min-width: 768px) {
+    .about {
+        grid-template-rows: repeat(3, auto) 1fr;
+        grid-template-areas:
+            'welcome welcome'
+            'title title'
+            'photo text'
+            'photo button';
+
+        align-items: flex-start;
+        align-content: flex-start;
+
+        grid-row-gap: 0;
+        max-width: 740px;
+
+        &__title {
+            font-size: 3rem;
+            justify-self: start;
+            margin: 1rem 3rem;
+        }
+
+        &__description {
+            margin: 0;
+            margin-bottom: 1.8rem;
+        }
+
+        &__button {
+            margin: 0;
+            justify-self: start;
+            align-self: start;
+        }
+    }
+}
+
+/* Big tablet and laptop */
+@media screen and (min-width: 1023px) {
+    .about {
+        max-width: 800px;
+
+        &__title {
+            font-size: 3rem;
+            margin: 1rem 3rem;
+        }
+
+        &__description {
+            font-size: 1.6rem;
+            margin-bottom: 2.5rem;
+        }
+
+        &__welcome {
+            display: none;
+        }
+    }
+
+    .photo-composition {
+        width: 22rem;
+        height: 22rem;
+
+        &__arrow {
+            span {
+                font-size: 2rem;
+            }
+        }
+    }
+
+}
+
+@media screen and (min-width: 1023px) {
+    .about {
+        max-width: 900px;
+        padding: 5rem 2rem;
+        padding-top: 4rem;
+
+        &__title {
+            font-size: 3rem;
+            margin: 1rem 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        &__description {
+            font-size: 1.7rem;
+            margin-bottom: 2.5rem;
+        }
+
+        &__button {
+            font-size: 1.3rem;
+        }
+
+    }
+
+    .photo-composition {
+        width: 22rem;
+        height: 22rem;
+
+        &__arrow {
+            span {
+                font-size: 2rem;
+            }
+        }
+    }
+
+}
+
+
+/* todo: subirle el font-size un poquito */
