@@ -1,6 +1,6 @@
 export const data = {
     skills: {
-        tech: [
+        techSkills: [
             {
                 name: 'HTML5',
                 domainPercent: 90, 
@@ -30,7 +30,7 @@ export const data = {
                 domainPercent: 80, 
             },
         ],
-        soft: [
+        softSkills: [
             { name: 'Resolución de problemas', },
             { name: 'Trabajo en equipo', },
             { name: 'Comunicación', },
