@@ -1,0 +1,205 @@
+@import '../scss/variables';
+
+/* Medium size phone */
+
+.skills__container {
+    width: 100%;
+    height: 100vh;
+}
+
+.skills{
+    height: 100%;
+    width: 100%;
+
+    padding: 0 3rem;
+
+    background-color: $medium-gray;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    &__content{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__text {
+        font-family: $roboto;
+        font-size: 1.6rem;
+        color: $white;
+
+        &--title{
+            font-family: $roboto;
+            font-weight: $bold;
+            font-size: 3.2rem;
+            margin-bottom: .5rem;
+        }
+
+        &--subtitle{
+            font-family: $roboto;
+            font-weight: $regular;
+            font-size: 2rem;
+            margin-bottom: .7rem;
+        }
+
+        &--small {
+            font-weight: $medium;
+            font-size: 1.1rem;
+        }
+    }
+
+    /* Techskills */
+
+    &__barContainer{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 1.1rem;
+    }
+    
+    &__barBackground{
+        width: 100%;
+        height: 1.7rem;
+        background-color: $soft-gray;
+        margin-top: .2rem;
+    }
+
+    &__bar {
+        height: 100%;
+        background-color: $tech-green;
+        position: relative;
+    }
+
+    &__domain{
+        position: absolute;
+        right: -1rem;
+        top: -90%;
+    }
+
+    /* softSkills */
+
+    &__soft {
+        margin-top: 1rem;
+        width: 100%;
+    }
+
+    &__softTitle{
+        text-align: center;
+    }
+
+    &__softSkill {
+        font-size: 1.5rem;
+        margin-bottom: .4rem;
+        list-style-position: inside;
+    }
+
+}
+
+/* Phone landscape */
+@media only screen and (max-height: 450px) and (orientation: landscape) {
+    .skills{
+        &__content{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(9, auto);
+            align-items: start;
+            column-gap: 4.3rem;
+            
+        }
+
+        &__techTitle{
+           text-align: center;
+           margin: 0;
+           align-self: center;
+        }
+
+        &__barBackground {
+            height: 1rem;
+        }
+
+        &__domain {
+            top: -1.5rem;
+        }
+
+        &__soft{
+            grid-column: 2 / 3;
+            grid-row: 3 / 9;
+        }
+    }
+}
+
+@media only screen and (max-height: 320px) and (orientation: landscape){
+    .skills{
+        padding: 0 1rem;
+    }
+}
+
+/* small phone */
+@media screen and (max-width: 320px) and (max-height: 480px){
+.skills{
+    &__text {
+        font-size: 1.3rem;
+
+        &--title{
+            font-size: 2.3rem;
+            margin-bottom: 0rem;
+        }
+
+        &--subtitle{
+            font-size: 1.8rem;
+            margin-bottom: .7rem;
+        }
+
+        &--small {
+            font-size: 1.1rem;
+        }
+    }
+
+    /* Techskills */
+
+    &__barContainer{
+        margin-bottom: .7rem;
+    }
+    
+    &__barBackground{
+        height: 1rem;
+        margin-top: .3rem;
+    }
+
+    &__bar {
+        height: 100%;
+        background-color: $tech-green;
+        position: relative;
+    }
+
+    &__domain{
+        position: absolute;
+        right: -1rem;
+        top: -1.5rem;
+    }
+
+    /* softSkills */
+
+    &__soft {
+        margin-top: .5rem;
+        width: 100%;
+    }
+
+    &__softTitle{
+        text-align: center;
+    }
+
+    &__softSkill {
+        font-size: 1.4rem;
+        margin-bottom: .3rem;
+        list-style-position: inside;
+    }
+
+}
+
+}
