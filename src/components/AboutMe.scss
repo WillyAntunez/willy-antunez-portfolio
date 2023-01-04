@@ -197,9 +197,66 @@
 
 /* MEDIUM PHONE */
 @media only screen and (min-height: 360px) and (min-width: 640px) and (max-width: 768px) and (orientation: landscape) {
+    .container--about {
+        padding: 0 2rem;
+    }
+
     .about {
-        .about__description {
-            font-size: 1.45rem;
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: repeat(3, auto) 1fr;
+        grid-template-areas:
+            'welcome welcome'
+            'title text'
+            'photo text'
+            'photo  button';
+        grid-auto-flow: row;
+
+        justify-items: center;
+        align-items: start;
+        justify-content: center;
+
+        grid-column-gap: 2rem;
+        grid-row-gap: 0.4rem;
+
+        width: 100%;
+        margin: 0 auto;
+
+        &__welcome {
+            grid-area: welcome;
+            justify-self: start;
+            margin-left: 3rem;
+        }
+
+        &__title {
+            grid-area: title;
+            margin: 0;
+            justify-self: end;
+            margin-bottom: 0.4rem;
+        }
+
+        &__description {
+            grid-area: text;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        &__button {
+            grid-area: button;
+        }
+    }
+
+    .photo-composition {
+        margin: 0;
+        grid-area: photo;
+        justify-self: end;
+        width: 20rem;
+        height: 20rem;
+
+        &__arrow {
+            span {
+                font-size: 1.8rem;
+            }
         }
     }
 }

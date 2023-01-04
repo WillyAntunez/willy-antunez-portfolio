@@ -1,12 +1,6 @@
 @import '../scss/variables';
 
 /* Medium size phone */
-
-.skills__container {
-    width: 100%;
-    height: 100vh;
-}
-
 .skills{
     height: 100%;
     width: 100%;
@@ -20,6 +14,13 @@
     align-items: center;
     justify-content: center;
     
+    &__container {
+        width: 100%;
+        height: 100vh;
+        background-color: $medium-gray;
+    }
+
+
     &__content{
         width: 100%;
         display: flex;
@@ -103,10 +104,12 @@
 /* Phone landscape */
 @media only screen and (max-height: 450px) and (orientation: landscape) {
     .skills{
+        padding: 8rem;
+
         &__content{
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(9, auto);
+            grid-template-rows: repeat(7, auto);
             align-items: start;
             column-gap: 4.3rem;
             
@@ -128,7 +131,7 @@
 
         &__soft{
             grid-column: 2 / 3;
-            grid-row: 3 / 9;
+            grid-row: 4 / 7;
         }
     }
 }
@@ -202,4 +205,79 @@
 
 }
 
+}
+
+/* BIG PHONE */
+
+@media only screen and (min-width: 600px) and (min-height: 600px) {
+
+
+    .skills{
+        height: unset;
+        padding: 3rem 4rem;
+        max-width: 800px;
+        margin: 0 auto;
+
+        &__container {
+            height: unset;
+        }
+        
+        &__content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(9, auto);
+            align-items: start;
+            column-gap: 4.3rem;
+        }
+
+        &__techTitle {
+           text-align: center;
+           margin: 0;
+           align-self: center;
+           grid-column: 1 / 3;
+           grid-row: 1 / 2;
+           margin-bottom: 1.5rem;
+        }
+
+        &__text--title {
+            margin-bottom: 2rem;
+        }
+
+        &__barBackground {
+            height: 1rem;
+        }
+
+        &__domain {
+            top: -1.5rem;
+        }
+
+        &__soft {
+            grid-column: 1 / 3;
+            grid-row: 8 / 9 ;
+            margin-top: 1rem;
+        }
+
+        &__softTitle {
+            margin-bottom: 1.5rem;
+        }
+
+        &__list {
+            display: grid;
+            grid-template-columns: repeat(2, auto);
+            justify-content: center;
+            column-gap: 4rem;
+        }
+
+        &__softSkill {
+            margin-bottom: 1rem;
+        }
+    }
+    
+}
+
+/* Medium tablet and laptop */
+@media screen and (min-width: 1023px) {
+    .skills{
+        max-width: 930px;
+    }
 }

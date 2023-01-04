@@ -22,12 +22,16 @@ export const data = {
                 domainPercent: 50, 
             },
             {
-                name: 'Vue2',
+                name: 'Git y Github',
+                domainPercent: 80, 
+            },
+            {
+                name: 'Illustrator',
                 domainPercent: 50, 
             },
             {
-                name: 'Git y Github',
-                domainPercent: 80, 
+                name: 'Figma',
+                domainPercent: 50, 
             },
         ],
         softSkills: [
