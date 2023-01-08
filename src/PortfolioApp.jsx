@@ -2,6 +2,7 @@ import React from 'react';
 import './PortfolioApp.scss';
 
 import { Start,  NavBar,AboutMe, Skills } from './components';
+import { Projects } from './components/Projects';
 
 function PortfolioApp() {
     return (
@@ -10,6 +11,7 @@ function PortfolioApp() {
             <Start />
             <AboutMe />
             <Skills />
+            <Projects />
         </div>
     );
 }
