@@ -1,4 +1,7 @@
 export const data = {
+    social: {
+        githubUrl: 'https://github.com/WillyAntunez',
+    },
     skills: {
         techSkills: [
             {
@@ -47,21 +50,28 @@ export const data = {
             title: 'Pokedex: by Willy Antunez',
             description: 'Mi propio sitio web que usa los datos de la "PokeAPI" para mostrar información  de todos los Pokémon',
             id: 'pokedex',
+            repoUrl: 'https://github.com/WillyAntunez/pokedex',
+            previewUrl: 'https://willyantunez.github.io/pokedex/',
         },
         {
             title: 'Numbers to text',
             description: 'Pagina web desarrollada con Javascript puro en la que se ingresa un numero entero de hasta 30 dígitos con hasta 12 dígitos decimales y lo convierte a texto.',
             id: 'numbers-to-text',
+            repoUrl: 'https://github.com/WillyAntunez/numbers_to_text',
+            previewUrl: 'https://willyantunez.github.io/numbers_to_text/',
         },
         {
             title: 'Diputados Honduras',
             description: 'Pagina en Vue.js que recolectaba datos de la API del CNE durante las elecciones Honduras y mostraba un resumen (Actualmente no funcionando, API fuera de servicio)',
             id: 'diputados-honduras',
+            repoUrl: 'https://github.com/WillyAntunez/diputados-honduras',
         },
         {
             title: 'Where in the world',
             description: 'Pagina en Vue.js que recolectaba datos sobre paises de la API restcountries.com y los muestra',
             id: 'where-in-the-world',
+            repoUrl: 'https://github.com/WillyAntunez/where-in-the-world',
+            previewUrl: 'https://willyantunez.github.io/where-in-the-world/',
         },
     ]
 }
