@@ -157,6 +157,9 @@
             row-gap: 1rem;
             margin-bottom: 2rem;
         }
+        &__hr {
+            width: 35.8rem;
+        }
     }
 
     .projectCard {
@@ -174,4 +177,46 @@
         }
     }
 
+}
+
+/* small phone */
+@media screen and (max-width: 320px) and (max-height: 480px){
+    .myProjects{
+        &__projects {
+            width: 100%;
+        }
+
+        &__githubButton {
+            img{
+                width: 4rem;
+            }
+            font-size: 1.5rem;
+        }
+    }
+
+    .projectCard {
+        margin-bottom: 1rem;
+        
+        &__content{
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__image {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        &__description {
+            width: 100%;
+            font-size: 1.4rem;
+        }
+    }
+}
+
+/* Small phone lanscape */
+@media only screen and (max-height: 320px) and (orientation: landscape){
+    .myProjects {
+        padding: 1rem;
+    }
 }
