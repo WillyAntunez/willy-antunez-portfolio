@@ -61,17 +61,17 @@ export const data = {
             previewUrl: 'https://willyantunez.github.io/numbers_to_text/',
         },
         {
-            title: 'Diputados Honduras',
-            description: 'Pagina en Vue.js que recolectaba datos de la API del CNE durante las elecciones Honduras y mostraba un resumen (Actualmente no funcionando, API fuera de servicio)',
-            id: 'diputados-honduras',
-            repoUrl: 'https://github.com/WillyAntunez/diputados-honduras',
-        },
-        {
             title: 'Where in the world',
             description: 'Pagina en Vue.js que recolectaba datos sobre paises de la API restcountries.com y los muestra',
             id: 'where-in-the-world',
             repoUrl: 'https://github.com/WillyAntunez/where-in-the-world',
             previewUrl: 'https://willyantunez.github.io/where-in-the-world/',
+        },
+        {
+            title: 'Diputados Honduras',
+            description: 'Pagina en Vue.js que recolectaba datos de la API del CNE durante las elecciones Honduras y mostraba un resumen (Actualmente no funcionando, API fuera de servicio)',
+            id: 'diputados-honduras',
+            repoUrl: 'https://github.com/WillyAntunez/diputados-honduras',
         },
     ]
 }
