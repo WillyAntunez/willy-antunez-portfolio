@@ -69,7 +69,7 @@ export const data = {
         },
         {
             title: 'Diputados Honduras',
-            description: 'Pagina en Vue.js que recolectaba datos de la API del CNE durante las elecciones Honduras y mostraba un resumen (Actualmente no funcionando, API fuera de servicio)',
+            description: 'Pagina en Vue.js que recolectaba datos de la API del CNE durante las elecciones Honduras y mostraba un resumen (API fuera de servicio)',
             id: 'diputados-honduras',
             repoUrl: 'https://github.com/WillyAntunez/diputados-honduras',
         },
