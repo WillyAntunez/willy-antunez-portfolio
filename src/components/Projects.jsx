@@ -10,7 +10,7 @@ import './Projects.scss';
 
 export const Projects = () => {
     const {projects, social} = useContext(ProfileContext);
-    console.log(projects)
+    
     return (
         <div className='myProjects__container'>
             <div className='myProjects'>

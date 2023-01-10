@@ -6,12 +6,12 @@ export const ProjectCard = ({title, id, description, repoUrl, previewUrl}) => {
     <div className='projectCard'>
         <p className="projectCard__title">{ title }</p>
         
-        <div className="projectCard__content">
-          <div className='projectCard__image'>
-            <img src={`src/assets/img/projects/${id}.png`} alt={`project "${ title }"`} />
-          </div>
-          <p className='projectCard__description'>{description}</p>
+        
+        <div className='projectCard__image'>
+          <img src={`src/assets/img/projects/${id}.png`} alt={`project "${ title }"`} />
         </div>
+        <p className='projectCard__description'>{description}</p>
+        
 
         <div className='projectCard__buttons'>
           <a className='projectCard__button projectCard__button--repo'  
