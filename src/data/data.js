@@ -1,6 +1,14 @@
 export const data = {
+    contact: {
+        cellphone: '+504 8890-8796',
+        email: 'willyantunezg@gmail.com'
+    },
     social: {
+        whatsappUrl: 'https://wa.me/50488908796',
         githubUrl: 'https://github.com/WillyAntunez',
+        linkedinUrl: 'https://www.linkedin.com/in/willy-antunez/',
+        twitterUrl: 'https://twitter.com/antunez_willy',
+        fbPageUrl: 'https://www.facebook.com/WillyAntunezG'
     },
     skills: {
         techSkills: [
