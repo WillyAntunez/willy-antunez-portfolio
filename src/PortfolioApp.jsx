@@ -1,9 +1,7 @@
 import React from 'react';
 import './PortfolioApp.scss';
 
-import { Start,  NavBar,AboutMe, Skills } from './components';
-import { Projects } from './components/Projects';
-import { Contact } from './components/Contact';
+import { Start,  NavBar,AboutMe, Skills, Projects, Contact, Footer } from './components';
 
 function PortfolioApp() {
     return (
@@ -14,6 +12,7 @@ function PortfolioApp() {
             <Skills />
             <Projects />
             <Contact />
+            <Footer />
         </div>
     );
 }

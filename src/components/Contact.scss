@@ -178,14 +178,22 @@
 
         &__way{
             &--first{
+                margin-top: 1rem;
                 width: 50%;
             }
             &--second{
+                margin-top: 1rem;
                 width: 50%;
             }
             &--form{
                 margin-top: 0;
                 order: -1;
+            }
+        }
+
+        &__iconButton{
+            img {
+                width: 5.2rem;
             }
         }
     }
