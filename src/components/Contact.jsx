@@ -1,5 +1,6 @@
-import React from 'react';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+
 import { ProfileContext } from '../context/ProfileContext';
 
 import './Contact.scss';
@@ -9,13 +10,13 @@ import facebookIcon from '../assets/svg/facebook.svg';
 import linkedinIcon from '../assets/svg/linkedin.svg';
 import twitterIcon from '../assets/svg/twitter.svg';
 
-export const Contact = () => {
+export const Contact = ({id}) => {
 
   const {social} = useContext(ProfileContext)
 
   return (
     <>
-        <div className='contact__container'>
+        <div className='contact__container' id={id}>
             <div className="contact">
 
               <h2 className='contact__title'> Contáctame </h2>  
@@ -75,4 +76,8 @@ export const Contact = () => {
         </div>
     </>
   )
+}
+
+Contact.propTypes = {
+    id: PropTypes.string.isRequired,
 }

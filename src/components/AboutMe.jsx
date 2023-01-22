@@ -1,14 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import miFoto from '../assets/img/yo.jpg';
 import arrow from '../assets/img/handmade-arrow.png';
 
 import './AboutMe.scss';
 
-export const AboutMe = () => {
+export const AboutMe = ({id}) => {
     return (
         <>
-            <div className="container container--about">
+            <div className="container container--about" id={id}>
                 <div className="about">
                     <p className="about__welcome">!Empecemos el recorrido!</p>
                     <h2 className="about__title">¿Quien soy?</h2>
@@ -38,3 +39,7 @@ export const AboutMe = () => {
         </>
     );
 };
+
+AboutMe.propTypes = {
+    id: PropTypes.string.isRequired,
+}

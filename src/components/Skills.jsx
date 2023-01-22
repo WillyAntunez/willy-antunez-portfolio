@@ -1,16 +1,17 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import { useContext } from 'react'
 import { ProfileContext } from '../context/ProfileContext'
 
 import './Skills.scss';
 
-export const Skills = () => {
+export const Skills = ({id}) => {
 
   const {skills} = useContext(ProfileContext);
 
   return (
-    <div className='skills__container'>
+    <div className='skills__container' id={id}>
         <div className="skills">
           <h2 className='skills__text skills__text--title'>Mis habilidades</h2>
 
@@ -45,4 +46,8 @@ export const Skills = () => {
           
     </div>
   )
+}
+
+Skills.propTypes = {
+    id: PropTypes.string.isRequired,
 }

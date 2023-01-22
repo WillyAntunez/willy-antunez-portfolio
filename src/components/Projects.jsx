@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 
-import { useContext } from 'react'
 import { ProfileContext } from '../context/ProfileContext'
 import { ProjectCard } from './ProjectCard';
 
@@ -8,11 +8,11 @@ import githubIcon from '../assets/svg/github.svg';
 
 import './Projects.scss';
 
-export const Projects = () => {
+export const Projects = ({id}) => {
     const {projects, social} = useContext(ProfileContext);
     
     return (
-        <div className='myProjects__container'>
+        <div className='myProjects__container' id={id}>
             <div className='myProjects'>
                 <h2 className='myProjects__title'>Mis proyectos</h2>
                 <hr className='myProjects__hr' />
@@ -41,4 +41,8 @@ export const Projects = () => {
             </div>
         </div>
     )
+}
+
+Projects.propTypes = {
+    id: PropTypes.string.isRequired,
 }

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import PropTypes from 'prop-types';
+
 import { IconBtn } from './IconBtn';
 
 import { useMotion } from '../hooks/useMotion';
@@ -12,7 +14,7 @@ import developerImg from '../assets/img/developer.png';
 import lockIcon from '../assets/img/lock-icon.webp';
 import lockSound from '../assets/audio/lock-sound.mp3';
 
-export const Start = () => {
+export const Start = ( {id} ) => {
     const [showLockBtn, setShowLockBtn] = useState(true);
 
     const { enableMotion, showPermBtn, motion1, motion2, motion3 } = useMotion();
@@ -54,6 +56,7 @@ export const Start = () => {
                     opacity: `${elementMoving + 100}%`,
                     transition: `all  ${transitionSpeed}`,
                 }}
+                id={id}
             >
                 <div className="start">
                     <div className="start__frame" style={motion3}></div>
@@ -122,3 +125,7 @@ export const Start = () => {
         </>
     );
 };
+
+Start.propTypes = {
+    id: PropTypes.string.isRequired,
+}

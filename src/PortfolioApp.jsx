@@ -4,14 +4,14 @@ import './PortfolioApp.scss';
 import { Start,  NavBar,AboutMe, Skills, Projects, Contact, Footer } from './components';
 
 function PortfolioApp() {
-    return (
+    return (   
         <div className="container--main">
             <NavBar />
-            <Start />
-            <AboutMe />
-            <Skills />
-            <Projects />
-            <Contact />
+            <Start id= 'start' />
+            <AboutMe id='about' />
+            <Skills id='skills' />
+            <Projects id='projects' />
+            <Contact id='contact' />
             <Footer />
         </div>
     );
