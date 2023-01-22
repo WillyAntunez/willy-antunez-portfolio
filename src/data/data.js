@@ -8,7 +8,7 @@ export const data = {
         githubUrl: 'https://github.com/WillyAntunez',
         linkedinUrl: 'https://www.linkedin.com/in/willy-antunez/',
         twitterUrl: 'https://twitter.com/antunez_willy',
-        fbPageUrl: 'https://www.facebook.com/WillyAntunezG'
+        facebookUrl: 'https://www.facebook.com/WillyAntunezG'
     },
     skills: {
         techSkills: [

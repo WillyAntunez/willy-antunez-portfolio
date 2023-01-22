@@ -3,6 +3,9 @@
 
 .contact__container{
     background-color: $white;
+    background-color: rgb(255 252 245);
+    color: $black-gray;
+    // background: linear-gradient(0deg, $white 0%, $primary-blue 190%);
     width: 100%;
 }
 
@@ -11,12 +14,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 3.4rem 1.6rem;
+    padding: 2rem 1.6rem;
 
     &__title {
         font-weight: $bold;
         font-size: 3rem;
-        margin-bottom: .7rem;
+        margin-bottom: 1rem;
+        width: 100%;
+        text-align: center;
+        
     }
 
     &__separator {
@@ -32,15 +38,9 @@
         font-size: 1.8rem;
     }
 
-    &__intro {
-        display: flex;
-        flex-direction: column;
-        row-gap: 2rem;
-    }
-
     &__way {
         width: 100%;
-        margin-top: 4rem;
+        margin-top: 3rem;
         display: flex;
         flex-direction: column;
         row-gap: 1rem;
@@ -49,6 +49,11 @@
             justify-content: center;
             align-items: center;
         }
+        
+        &--first{
+            margin-top: 1rem;
+        }
+
     }
 
     &__subtitle {
@@ -56,6 +61,7 @@
         font-weight: $bold;
         font-size: 2rem;
         margin-bottom: .5rem;
+        width: 100%;
     }
 
     &__whatsappButton{
@@ -100,14 +106,21 @@
         margin-bottom: .3rem;
     }
 
+    &__formGroup{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1.4rem;
+    }
+
     &__input{
         font-size: 1.8rem;
         padding: 1rem;
         font-family: $roboto;
         border-radius: 1rem;
         border: 1px solid $black;
-        margin-bottom: 1.4rem;
         resize: none;
+        width: 100%;
     }
 
     &__submitButton {
@@ -121,5 +134,59 @@
         font-weight: $regular;
         padding: 1.3rem 0;
         @include small-shadow;
+        cursor: pointer;
+    }
+}
+
+@media only screen and (min-width: 600px){
+    .contact {
+        max-width: 900px;
+        margin: 0 auto;
+        &__form {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        &__formGroup {
+            &--wrapable{
+                width: calc(50% - .5rem);
+            }
+        }
+
+        &__submitButton {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+    }
+}
+
+@media only screen and (min-width: 1023px){
+    .contact{
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        &__separator{
+            width: 35rem;
+        }
+
+        &__title{
+            order: -100;
+        }
+
+        &__way{
+            &--first{
+                width: 50%;
+            }
+            &--second{
+                width: 50%;
+            }
+            &--form{
+                margin-top: 0;
+                order: -1;
+            }
+        }
     }
 }
