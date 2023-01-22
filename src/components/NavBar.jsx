@@ -6,9 +6,15 @@ import './NavBar.scss';
 
 import hambIcon from '../assets/img/hamb.png';
 import closeIcon from '../assets/img/close-icon.png';
+import { useIdScrollSpy } from '../hooks/useIdScrollSpy';
 
 export const NavBar = () => {
     const [showNav, setShowNav] = useState(false);
+
+    const {activeScrollElement} = useIdScrollSpy({
+        ids: ['start', 'about', 'skills', 'projects', 'contact'],
+        initialValue: 'start',
+    });
 
     const navBarRef = useRef();
 
@@ -36,10 +42,13 @@ export const NavBar = () => {
         if(window.innerWidth >= 768 ){
             window.scrollTo({top: elementPosition - navBarHeight});
         }else{
-            window.scrollTo({top: elementPosition});
+            if(targetId !== 'start'){
+                window.scrollTo({top: elementPosition});
+            }else{
+                window.scrollTo({top: 0});
+            }
             onHideNav();
         }
-
     }
 
     return (
@@ -50,7 +59,7 @@ export const NavBar = () => {
                 ref={navBarRef}
             >
                 <nav className="nav">
-                    <div className="nav__top">
+                    <div className="nav__top" onClick={() => {onScrollToId('start')}}>
                         <div className="nav__name text--blueback">
                             <h2>
                                 Willy <br /> Antunez
@@ -65,20 +74,40 @@ export const NavBar = () => {
                     <span className="nav__separator"></span>
 
                     <ul className="nav__items">
-                        <li className="nav__item nav__item--start">
-                            <a className="nav__link" onClick={() => {onScrollToId('start')}}>Inicio</a>
+                        <li className="nav__item nav__item--start ">
+                            <a 
+                                className={`nav__link ${activeScrollElement === 'start' ? 'nav__link--active' : '' }`} 
+                                onClick={() => {onScrollToId('start')}}>
+                                    Inicio
+                            </a>
                         </li>
                         <li className="nav__item">
-                            <a className="nav__link" onClick={() => {onScrollToId('about')}}>¿Quién soy?</a>
+                            <a 
+                                className={`nav__link ${activeScrollElement === 'about' ? 'nav__link--active' : '' }`} 
+                                onClick={() => {onScrollToId('about')}}>
+                                    ¿Quién soy?
+                            </a>
                         </li>
                         <li className="nav__item">
-                            <a className="nav__link" onClick={() => {onScrollToId('skills')}}>Habilidades</a>
+                            <a 
+                                className={`nav__link ${activeScrollElement === 'skills' ? 'nav__link--active' : '' }`} 
+                                onClick={() => {onScrollToId('skills')}}>
+                                    Habilidades
+                            </a>
                         </li>
                         <li className="nav__item">
-                            <a className="nav__link" onClick={() => {onScrollToId('projects')}}>Proyectos</a>
+                            <a 
+                                className={`nav__link ${activeScrollElement === 'projects' ? 'nav__link--active' : '' }`} 
+                                onClick={() => {onScrollToId('projects')}}>
+                                    Proyectos
+                            </a>
                         </li>
                         <li className="nav__item">
-                            <a className="nav__link" onClick={() => {onScrollToId('contact')}}>Contacto</a>
+                            <a 
+                                className={`nav__link ${activeScrollElement === 'contact' ? 'nav__link--active' : '' }`} 
+                                onClick={() => {onScrollToId('contact')}}>
+                                    Contacto
+                            </a>
                         </li>
                     </ul>
 
