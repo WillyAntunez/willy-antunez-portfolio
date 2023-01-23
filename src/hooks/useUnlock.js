@@ -146,5 +146,6 @@ export const useUnlock = ({ maxWidth = 9999, maxHeight = 9999 }) => {
         transitionSpeed,
         isUp: isUp.current,
         lock: goDown,
+        unLock: goUp
     };
 };

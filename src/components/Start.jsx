@@ -18,7 +18,7 @@ export const Start = ( {id} ) => {
     const [showLockBtn, setShowLockBtn] = useState(true);
 
     const { enableMotion, showPermBtn, motion1, motion2, motion3 } = useMotion();
-    const { unLockEvents, elementMoving, transitionSpeed, lock } = useUnlock({
+    const { unLockEvents, elementMoving, transitionSpeed, lock, unLock } = useUnlock({
         maxHeight: 425,
     });
 
@@ -44,6 +44,12 @@ export const Start = ( {id} ) => {
         lock();
     };
 
+    const handleClick = (event) => {
+        if(event.nativeEvent.pointerType === 'mouse'){
+            unLock();
+        }
+    }
+
     return (
         <>
             <div
@@ -57,6 +63,7 @@ export const Start = ( {id} ) => {
                     transition: `all  ${transitionSpeed}`,
                 }}
                 id={id}
+                onClick={handleClick}
             >
                 <div className="start">
                     <div className="start__frame" style={motion3}></div>
