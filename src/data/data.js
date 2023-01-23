@@ -1,4 +1,5 @@
 export const data = {
+    cvUrl: 'https://drive.google.com/file/d/1hPqOjbFOM3uEBKVMeuuL99IcagEb3_El/view?usp=sharing',
     contact: {
         cellphone: '+504 8890-8796',
         email: 'willyantunezg@gmail.com'
@@ -30,7 +31,7 @@ export const data = {
             },
             {
                 name: 'React.js',
-                domainPercent: 50, 
+                domainPercent: 60, 
             },
             {
                 name: 'Git y Github',

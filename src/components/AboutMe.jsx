@@ -5,8 +5,13 @@ import miFoto from '../assets/img/yo.jpg';
 import arrow from '../assets/img/handmade-arrow.png';
 
 import './AboutMe.scss';
+import { useContext } from 'react';
+import { ProfileContext } from '../context/ProfileContext';
 
 export const AboutMe = ({id}) => {
+
+    const { cvUrl } = useContext(ProfileContext)
+
     return (
         <>
             <div className="container container--about" id={id}>
@@ -33,7 +38,7 @@ export const AboutMe = ({id}) => {
                         aprovechar todos los recursos online disponibles para ser un desarrollador
                         capaz de encontrar soluciones sofisticadas a problemas complejos.
                     </p>
-                    <button className="about__button">Descargar CV</button>
+                    <a className="about__button" href={ cvUrl } target='_blank' rel="noreferrer">Descargar CV</a>
                 </div>
             </div>
         </>
