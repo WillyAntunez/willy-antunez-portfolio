@@ -10,6 +10,7 @@ import facebookIcon from '../assets/svg/facebook.svg';
 import linkedinIcon from '../assets/svg/linkedin.svg';
 import twitterIcon from '../assets/svg/twitter.svg';
 import { useForm } from '../hooks/useForm';
+import { useFormSpree } from '../hooks/useFormSpree';
 
 const formConfig = [
   {
@@ -52,13 +53,19 @@ export const Contact = ({id}) => {
   const {social} = useContext(ProfileContext)
   
   const {name, email, subject, msgBody, onInputChange, isFormValid, setFormSubmitted, wasFormSubmited} = useForm(formConfig);
+  const sendEmail = useFormSpree('mayznpal');
 
-  const onFormSubmit = (event) => {
+  const onFormSubmit = async (event) => {
     event.preventDefault();
     setFormSubmitted();
 
     if(isFormValid){
-      // TODO: enviar email
+      await sendEmail({
+        name: name.value,
+        email: email.value,
+        subject: subject.value,
+        message: msgBody.value,
+      });
     }
   }
 
