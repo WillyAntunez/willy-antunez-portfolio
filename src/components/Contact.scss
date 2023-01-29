@@ -121,6 +121,16 @@
         border: 1px solid $black;
         resize: none;
         width: 100%;
+        
+        &--notValid{
+            border-color: $error;
+            outline-color: $error;
+        }
+    }
+
+    &__inputError {
+        color: $error;
+        margin-top: .2rem;
     }
 
     &__submitButton {
