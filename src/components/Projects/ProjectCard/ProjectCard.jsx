@@ -2,13 +2,16 @@ import React from 'react'
 
 
 export const ProjectCard = ({title, id, description, repoUrl, previewUrl}) => {
+
+  const {BASE_URL} = import.meta.env;
+  
   return (
     <div className='projectCard'>
         <p className="projectCard__title">{ title }</p>
         
         
         <div className='projectCard__image'>
-          <img src={`/projects/${id}.png`} alt={`project "${ title }"`} />
+          <img src={`${BASE_URL}projects/${id}.png`} alt={`project "${ title }"`} />
         </div>
         <p className='projectCard__description'>{description}</p>
         
