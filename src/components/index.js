@@ -6,3 +6,4 @@ export * from './Skills/Skills';
 export * from './Projects/Projects';
 export * from './Contact/Contact';
 export * from './Footer/Footer';
+export * from './Modal/Modal';

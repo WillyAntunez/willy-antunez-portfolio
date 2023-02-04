@@ -38,16 +38,21 @@ export const useForm = (config = {}) => {
     const [wasFormSubmited, setWasFormSubmited] = useState(false)
     const [formState, setFormState] = useState(formInitialValue());
     const validators = useMemo(() => initValidators(), []);
+
     const isFormValid = useMemo(() => {
+
+        if(wasFormSubmited === false){
+            return false;
+        }
+
         for(const inputName in formState){
             if(formState[inputName].notValid !== undefined) return false;
         }
 
         return true;
-    }, [formState])
+        
+    }, [formState, wasFormSubmited])
 
-
-    // TODO: Crear funciones onInputChange y onReset
 
     const onInputChange = ({target}) => {
 
@@ -77,7 +82,7 @@ export const useForm = (config = {}) => {
             };
         }
 
-        setFormState(newFormState);
+        setFormState( newFormState );
     }
 
     const resetForm = () => {
@@ -86,8 +91,8 @@ export const useForm = (config = {}) => {
     }
 
     const setFormSubmitted = () => {
-        setWasFormSubmited(true);
         validateAll();
+        setWasFormSubmited(true);
     };
 
 

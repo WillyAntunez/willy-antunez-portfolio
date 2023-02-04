@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { ProfileContext } from '../../context';
@@ -10,28 +10,57 @@ import { formConfig } from './config/formConfig';
 import { whatsappIcon, facebookIcon, linkedinIcon, twitterIcon } from '../../assets';
 
 import './Contact.scss';
+import { Modal } from '../Modal/Modal';
 
 
 export const Contact = ({id}) => {
 
   const {social} = useContext(ProfileContext)
   
-  const {name, email, subject, msgBody, onInputChange, isFormValid, setFormSubmitted, wasFormSubmited} = useForm(formConfig);
-  const sendEmail = useFormSpree('mayznpal');
+  const [modalState, setModalState] = useState({
+    show: false,
+    success: true,
+    msg: '',
+  });
+  
+  const {name, email, subject, msgBody, onInputChange, isFormValid, setFormSubmitted, wasFormSubmited, resetForm} = useForm(formConfig);
+
+  const sendEmail = useFormSpree({id: 'mayznpal', dailyLimit: 3, totalLimit: 10});
 
   const onFormSubmit = async (event) => {
     event.preventDefault();
     setFormSubmitted();
 
+
     if(isFormValid){
-      await sendEmail({
+      const res = await sendEmail({
         name: name.value,
         email: email.value,
         subject: subject.value,
         message: msgBody.value,
       });
+
+      console.log('entro')
+
+      setModalState(modalState => ({
+        ...modalState,
+        show: true,
+        success: res.ok,
+        msg: res.msg,
+      }))
     }
-  }
+  };
+
+  const onCloseModal = () => {
+    setModalState(modalState => ({
+      ...modalState,
+      show: false,
+    }));
+
+    resetForm();
+
+    window.scrollTo(0, 0);
+  };
 
   return (
     <>
@@ -129,6 +158,12 @@ export const Contact = ({id}) => {
                   <button className='contact__submitButton' type='sumbit'>Enviar mensaje</button>
                 </form>
               </div>
+              
+              {
+                (modalState.show)
+                ? <Modal success={modalState.success} msg={modalState.msg} onCloseModal={onCloseModal} />
+                : null
+              }
 
             </div>
         </div>

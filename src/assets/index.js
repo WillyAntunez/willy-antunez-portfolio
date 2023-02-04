@@ -1,5 +1,7 @@
 /* SVG */
 export { default as arrowUpImg } from './svg/arrow-up.svg';
+export { default as envelopeCheckIcon } from './svg/envelope-check.svg'; 
+export { default as envelopeFailIcon } from './svg/envelope-x.svg';
  
 /* IMG */
 export { default as arrow } from './img/handmade-arrow.png';
