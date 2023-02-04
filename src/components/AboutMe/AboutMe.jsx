@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
-import miFoto from '../assets/img/yo.jpg';
-import arrow from '../assets/img/handmade-arrow.png';
+import { ProfileContext } from '../../context';
+
+import { miFoto, arrow, downloadDocument } from '../../assets';
 
 import './AboutMe.scss';
-import { useContext } from 'react';
-import { ProfileContext } from '../context/ProfileContext';
+
 
 export const AboutMe = ({id}) => {
 
@@ -38,7 +38,17 @@ export const AboutMe = ({id}) => {
                         aprovechar todos los recursos online disponibles para ser un desarrollador
                         capaz de encontrar soluciones sofisticadas a problemas complejos.
                     </p>
-                    <a className="about__button" href={ cvUrl } target='_blank' rel="noreferrer">Descargar CV</a>
+                    <a 
+                        className="about__button" 
+                        href={ cvUrl } 
+                        target='_blank' 
+                        rel="noreferrer"
+                        style={{
+                            backgroundImage: `url(${downloadDocument})`
+                        }}
+                    >
+                            Descargar CV
+                    </a>
                 </div>
             </div>
         </>

@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
-import { ProfileContext } from '../context/ProfileContext'
-import { ProjectCard } from './ProjectCard';
+import { ProfileContext } from '../../context'
+import { ProjectCard } from './ProjectCard/ProjectCard';
 
-import githubIcon from '../assets/svg/github.svg';
-
+import { githubIcon } from '../../assets';
 import './Projects.scss';
 
 export const Projects = ({id}) => {

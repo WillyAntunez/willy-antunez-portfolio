@@ -2,17 +2,14 @@ import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
-import { IconBtn } from './IconBtn';
+import { IconBtn } from '../';
 
-import { useMotion } from '../hooks/useMotion';
-import { useUnlock } from '../hooks/useUnlock';
+import { useMotion, useUnlock } from '../../hooks';
+
+import { arrowUpImg, developerImg, lockIcon, lockSound } from '../../assets';
 
 import './start.scss';
 
-import arrowUpImg from '../assets/svg/arrow-up.svg';
-import developerImg from '../assets/img/developer.png';
-import lockIcon from '../assets/img/lock-icon.webp';
-import lockSound from '../assets/audio/lock-sound.mp3';
 
 export const Start = ( {id} ) => {
     const [showLockBtn, setShowLockBtn] = useState(true);

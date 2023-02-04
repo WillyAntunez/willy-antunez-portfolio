@@ -1,52 +1,16 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
-import { ProfileContext } from '../context/ProfileContext';
+import { ProfileContext } from '../../context';
+
+import { useForm, useFormSpree } from '../../hooks';
+
+import { formConfig } from './config/formConfig';
+
+import { whatsappIcon, facebookIcon, linkedinIcon, twitterIcon } from '../../assets';
 
 import './Contact.scss';
 
-import whatsappIcon from '../assets/img/whatsapp-icon.png';
-import facebookIcon from '../assets/svg/facebook.svg';
-import linkedinIcon from '../assets/svg/linkedin.svg';
-import twitterIcon from '../assets/svg/twitter.svg';
-import { useForm } from '../hooks/useForm';
-import { useFormSpree } from '../hooks/useFormSpree';
-
-const formConfig = [
-  {
-    name: 'name',
-    regexValidators: [
-      [/\S+/, 'Este campo no puede estar vacío'],
-      [/^[a-zA-Z\s]*$/, 'Ingresaste caracteres no validos'],
-      [/^((?!asdasd).)*$/, '¿Estás escribiendo caracteres al azar?'],
-    ]
-  },
-  {
-    name: 'email',
-    regexValidators: [
-      [/\S+/, 'Este campo no puede estar vacío'],
-      [
-        /^(([^<>()[\]\\.,;:\s@”]+(\.[^<>()[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/, 
-        'Ingresaste un correo no válido'
-      ],
-    ]
-  },
-  {
-    name: 'subject',
-    regexValidators: [
-      [/\S+/, 'Este campo no puede estar vacío'],
-      [/^.{0,50}$/, 'El máximo de caracteres son 50'],
-      [/^((?!asdasd).)*$/, '¿Estás escribiendo caracteres al azar?'],
-    ],
-  },
-  {
-    name: 'msgBody',
-    regexValidators: [
-      [/\S+/, 'Este campo no puede estar vacío'],
-      [/^[\s\S]{0,5000}$/, 'Tampoco me contés tu vida... se más breve por favor.'],
-    ]
-  }
-]
 
 export const Contact = ({id}) => {
 
@@ -68,7 +32,6 @@ export const Contact = ({id}) => {
       });
     }
   }
-
 
   return (
     <>

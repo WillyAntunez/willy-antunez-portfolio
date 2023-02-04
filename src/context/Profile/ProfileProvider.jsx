@@ -2,7 +2,7 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import { data } from "../data";
+import { data } from "../../data";
 import { ProfileContext } from "./ProfileContext";
 
 export const ProfileProvider = ({children}) => {

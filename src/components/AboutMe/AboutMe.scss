@@ -1,4 +1,4 @@
-@import '../scss/variables';
+@import '../../scss/globals';
 
 .container--about {
     width: 100%;
@@ -40,7 +40,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-image: url('../assets/img/download-document.png');
         background-size: 20%;
         background-repeat: no-repeat;
         background-color: $white;

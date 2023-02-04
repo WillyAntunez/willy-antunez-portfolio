@@ -1,12 +1,12 @@
 import React, { useState, useRef } from 'react';
 
-import { IconBtn } from './IconBtn';
+import { useIdScrollSpy } from '../../hooks';
+
+import { IconBtn } from '../';
+
+import { hambIcon, closeIcon } from '../../assets';
 
 import './NavBar.scss';
-
-import hambIcon from '../assets/img/hamb.png';
-import closeIcon from '../assets/img/close-icon.png';
-import { useIdScrollSpy } from '../hooks/useIdScrollSpy';
 
 export const NavBar = () => {
     const [showNav, setShowNav] = useState(false);
