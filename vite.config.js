@@ -8,4 +8,5 @@ export default defineConfig({
     server: {
         https: true,
     },
+    base: "/willy-antunez-portfolio/",
 });
