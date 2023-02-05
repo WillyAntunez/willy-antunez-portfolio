@@ -1,9 +1,5 @@
 export const data = {
     cvUrl: 'https://drive.google.com/file/d/1hPqOjbFOM3uEBKVMeuuL99IcagEb3_El/view?usp=sharing',
-    contact: {
-        cellphone: '+504 8890-8796',
-        email: 'willyantunezg@gmail.com'
-    },
     social: {
         whatsappUrl: 'https://wa.me/50488908796',
         githubUrl: 'https://github.com/WillyAntunez',
